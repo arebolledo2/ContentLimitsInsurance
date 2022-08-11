@@ -6,13 +6,13 @@ using System.Text;
 
 namespace DataAccess
 {
-    public partial class ContentsLimitInsuranceContext: DbContext
+    public partial class ContentLimitsInsuranceContext: DbContext
     {
-        public ContentsLimitInsuranceContext()
+        public ContentLimitsInsuranceContext()
         {
         }
 
-        public ContentsLimitInsuranceContext(DbContextOptions<ContentsLimitInsuranceContext> options)
+        public ContentLimitsInsuranceContext(DbContextOptions<ContentLimitsInsuranceContext> options)
             : base(options)
         {
         }

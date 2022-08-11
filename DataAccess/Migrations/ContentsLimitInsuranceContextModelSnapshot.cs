@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataAccess.Migrations
 {
-    [DbContext(typeof(ContentsLimitInsuranceContext))]
+    [DbContext(typeof(ContentLimitsInsuranceContext))]
     partial class ContentsLimitInsuranceContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

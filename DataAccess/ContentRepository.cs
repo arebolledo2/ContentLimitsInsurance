@@ -9,9 +9,9 @@ namespace DataAccess
 {
     public class ContentRepository
     {
-        private ContentsLimitInsuranceContext _context;
+        private ContentLimitsInsuranceContext _context;
 
-        public ContentRepository(ContentsLimitInsuranceContext context)
+        public ContentRepository(ContentLimitsInsuranceContext context)
         {
             _context = context;
         }

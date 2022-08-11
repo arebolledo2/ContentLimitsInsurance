@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataAccess.Migrations
 {
-    [DbContext(typeof(ContentsLimitInsuranceContext))]
+    [DbContext(typeof(ContentLimitsInsuranceContext))]
     [Migration("20220811191137_InitialCreate")]
     partial class InitialCreate
     {
