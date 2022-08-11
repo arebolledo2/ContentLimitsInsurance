@@ -11,5 +11,6 @@ namespace DataAccess
         void Add(Content content);
         void Remove(Content content);
         Task SaveChangesAsync(CancellationToken token);
+        Task<List<Category>> GetCategories(CancellationToken token);
     }
 }

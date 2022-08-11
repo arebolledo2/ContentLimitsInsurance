@@ -37,5 +37,10 @@ namespace DataAccess
         {
             await _context.SaveChangesAsync(token);
         }
+
+        public async Task<List<Category>> GetCategories(CancellationToken token)
+        {
+            return await _context.Categories.ToListAsync();
+        }
     }
 }

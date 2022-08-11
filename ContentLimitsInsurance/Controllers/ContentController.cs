@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 
 namespace ContentLimitsInsurance.Controllers
 {
+    [ApiController]
+    [Route("[controller]")]
     public class ContentController : Controller
     {
         private IContentRepository _repository;
@@ -21,6 +23,13 @@ namespace ContentLimitsInsurance.Controllers
         public async Task<IEnumerable<Content>> GetContent(CancellationToken token)
         {
             return await _repository.All(token);
+        }
+
+        [HttpGet]
+        [Route("GetCategories")]
+        public async Task<IEnumerable<Category>> GetCategories(CancellationToken token)
+        {
+            return await _repository.GetCategories(token);
         }
 
         [HttpPost]
