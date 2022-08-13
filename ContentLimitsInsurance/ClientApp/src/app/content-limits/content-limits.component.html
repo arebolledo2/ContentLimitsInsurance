@@ -3,13 +3,21 @@
 <mat-list>
     <ng-container *ngFor="let category of categories">
         <mat-list-item>{{category.name}}</mat-list-item>
-        <!--<mat-list style="margin-left:30px;">
+        <mat-list style="margin-left:30px;">
             <div *ngFor="let content of category.contents">
                 <mat-list-item>{{ content.name }}</mat-list-item>
                 <mat-list-item>{{ content.value }}</mat-list-item>
             </div>
-        </mat-list>-->
+        </mat-list>
     </ng-container>
 </mat-list>
 
+<form [formGroup]="contentForm" (ngSubmit)="onSubmit(contentForm)">
+    <input id="name" type="text" formControlName="name" placeholder="Item Name">
+
+    <label for="value">Value: </label>
+    $<input id="value" type="number" formControlName="value">
+
+    <button class="btn btn-primary" type="submit" [disabled]="!contentForm.valid">Create</button>
+</form>
 
