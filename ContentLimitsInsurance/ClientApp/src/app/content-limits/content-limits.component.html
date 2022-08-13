@@ -13,11 +13,27 @@
 </mat-list>
 
 <form [formGroup]="contentForm" (ngSubmit)="onSubmit(contentForm)">
-    <input id="name" type="text" formControlName="name" placeholder="Item Name">
+    <mat-form-field appearance="fill" [floatLabel]="always">
+        <mat-label>Item Name</mat-label>
+        <input matInput id="contentName" type="text" formControlName="contentName">
+    </mat-form-field>
 
-    <label for="value">Value: </label>
-    $<input id="value" type="number" formControlName="value">
+    <mat-form-field appearance="fill" [floatLabel]="always">
+        <mat-label>Amount</mat-label>
+        <input matInput id="contentValue" type="number" formControlName="contentValue" placeholder="0" class="right-align">
+        <span matPrefix>$&nbsp;</span>
+    </mat-form-field>
 
-    <button class="btn btn-primary" type="submit" [disabled]="!contentForm.valid">Create</button>
+    <mat-form-field appearance="fill" [floatLabel]="always">
+        <mat-label>Category</mat-label>
+        <mat-select formControlName="contentCategory" >
+            <mat-option *ngFor="let category of categories" [value]="category">
+                {{category.name}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <button class="btn btn-primary" type="submit" [disabled]="!contentForm.valid">Add</button>
+
 </form>
 
