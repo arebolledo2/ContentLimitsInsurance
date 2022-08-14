@@ -18,17 +18,12 @@ namespace DataAccess
             _context = context;
         }
 
-        public async Task<List<Content>> All(CancellationToken token)
-        {
-            return await _context.Contents.ToListAsync();
-        }
-
         public void Add(Content content)
         {
             _context.Add(content);
         }
 
-        public void Remove(Content content)
+        public void Delete(Content content)
         {
             _context.Remove(content);
         }
@@ -38,9 +33,9 @@ namespace DataAccess
             await _context.SaveChangesAsync(token);
         }
 
-        public async Task<List<Category>> GetCategories(CancellationToken token)
+        public async Task<List<Category>> GetCategoriesWithContent(CancellationToken token)
         {
-            return await _context.Categories.ToListAsync();
+            return await _context.Categories.Include(x => x.Contents).ToListAsync();
         }
     }
 }

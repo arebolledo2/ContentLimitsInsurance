@@ -30,7 +30,6 @@ export class ContentLimitsComponent {
 
     refresh() {
         this.http.get<Category[]>(this.baseUrl + 'Content/GetCategories').subscribe(result => {
-            console.log(result);
             this.categories = result;
             this.filteredCategories = this.categories.filter(x => x.contents);
         }, error => console.error(error));

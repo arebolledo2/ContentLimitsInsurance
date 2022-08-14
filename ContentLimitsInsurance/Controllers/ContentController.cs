@@ -20,19 +20,10 @@ namespace ContentLimitsInsurance.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<Content>> GetContent(CancellationToken token)
-        {
-            return await _repository.All(token);
-        }
-
-        [HttpGet]
         [Route("GetCategories")]
         public async Task<IEnumerable<Category>> GetCategories(CancellationToken token)
         {
-            var categories = await _repository.GetCategories(token);
-            // Attach content
-            await _repository.All(token);
-            return categories;
+            return await _repository.GetCategoriesWithContent(token);
         }
 
         [HttpPost]
@@ -48,7 +39,7 @@ namespace ContentLimitsInsurance.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Delete(int contentId, CancellationToken token)
         {
-            _repository.Remove(new Content() { ContentId = contentId });
+            _repository.Delete(new Content() { ContentId = contentId });
             await _repository.SaveChangesAsync(token);
             return Json("OK");
         }
