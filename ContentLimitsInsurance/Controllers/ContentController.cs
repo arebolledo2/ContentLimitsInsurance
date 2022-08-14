@@ -29,11 +29,14 @@ namespace ContentLimitsInsurance.Controllers
         [Route("GetCategories")]
         public async Task<IEnumerable<Category>> GetCategories(CancellationToken token)
         {
-            return await _repository.GetCategories(token);
+            var categories = await _repository.GetCategories(token);
+            // Attach content
+            await _repository.All(token);
+            return categories;
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        [Route("Add")]
         public async Task<ActionResult> Add(Content content, CancellationToken token)
         {
             _repository.Add(content);

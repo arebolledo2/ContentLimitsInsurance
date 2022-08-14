@@ -11,21 +11,40 @@ import { Content } from '@domain-model/Content';
 })
 export class ContentLimitsComponent {
     public categories: Category[];
+    public filteredCategories: Category[];
     contentForm;
+    baseUrl: string;
+    http: HttpClient;
 
     constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+        this.baseUrl = baseUrl;
+        this.http = http;
         this.contentForm = new FormGroup({
             contentName: new FormControl(),
             contentCategory: new FormControl(),
             contentValue: new FormControl()
         });
 
-        http.get<Category[]>(baseUrl + 'Content/GetCategories').subscribe(result => {
+        this.refresh();
+    }
+
+    refresh() {
+        this.http.get<Category[]>(this.baseUrl + 'Content/GetCategories').subscribe(result => {
+            console.log(result);
             this.categories = result;
+            this.filteredCategories = this.categories.filter(x => x.contents);
         }, error => console.error(error));
     }
 
     onSubmit(formData) {
-        console.log(this.contentForm.get('contentCategory').value);
+        var content = {
+            name: formData.value.contentName,
+            value: formData.value.contentValue,
+            categoryId: formData.value.contentCategory.categoryId
+        };
+        console.log(content);
+        this.http.post<Category[]>(this.baseUrl + 'Content/Add', content).subscribe(result => {
+            this.refresh();
+        });
     }
 }
