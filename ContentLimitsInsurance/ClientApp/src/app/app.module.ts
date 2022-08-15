@@ -14,6 +14,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -25,7 +26,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
         HttpClientModule,
         FormsModule,
         RouterModule.forRoot([
-            { path: '', redirectTo: '/heroes', pathMatch: 'full' },
+            { path: '', redirectTo: '/content-limits', pathMatch: 'full' },
             { path: 'content-limits', component: ContentLimitsComponent },
         ]),
         NoopAnimationsModule,

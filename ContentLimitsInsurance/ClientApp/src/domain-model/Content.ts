@@ -1,4 +1,4 @@
-﻿export interface Content {
+﻿export interface IContent {
     name: string;
     value: number;
 }

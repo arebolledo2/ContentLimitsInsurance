@@ -29,6 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\content-limits\content-limits.service.ts" />
     <None Remove="ClientApp\src\domain-model\Category.ts" />
     <None Remove="ClientApp\src\domain-model\Content.ts" />
   </ItemGroup>
