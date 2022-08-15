@@ -5,7 +5,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { HomeComponent } from './home/home.component';
 import { ContentLimitsComponent } from './content-limits/content-limits.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -19,7 +18,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     declarations: [
         AppComponent,
         NavMenuComponent,
-        HomeComponent,
         ContentLimitsComponent
     ],
     imports: [
@@ -27,7 +25,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
         HttpClientModule,
         FormsModule,
         RouterModule.forRoot([
-            { path: '', component: HomeComponent, pathMatch: 'full' },
+            { path: '', redirectTo: '/heroes', pathMatch: 'full' },
             { path: 'content-limits', component: ContentLimitsComponent },
         ]),
         NoopAnimationsModule,
