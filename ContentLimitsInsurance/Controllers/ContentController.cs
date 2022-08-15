@@ -32,16 +32,20 @@ namespace ContentLimitsInsurance.Controllers
         {
             _repository.Add(content);
             await _repository.SaveChangesAsync(token);
-            return Json("OK");
+            return new CreatedResult("Add", content);
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Delete(int contentId, CancellationToken token)
+        [Route("Delete")]
+        public async Task<ActionResult> Delete(Content content, CancellationToken token)
         {
-            _repository.Delete(new Content() { ContentId = contentId });
+            if (content == null || content.ContentId == 0)
+            {
+                return BadRequest("Content is required");
+            }
+            _repository.Delete(content);
             await _repository.SaveChangesAsync(token);
-            return Json("OK");
+            return NoContent();
         }
     }
 }

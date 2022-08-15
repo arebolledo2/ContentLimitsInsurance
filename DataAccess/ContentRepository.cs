@@ -25,6 +25,7 @@ namespace DataAccess
 
         public void Delete(Content content)
         {
+            _context.Attach(content);
             _context.Remove(content);
         }
 
