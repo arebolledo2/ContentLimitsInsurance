@@ -26,18 +26,18 @@
 </div>
 
 <form [formGroup]="contentForm" (ngSubmit)="addContent(contentForm)">
-    <mat-form-field appearance="fill" [floatLabel]="always">
+    <mat-form-field appearance="fill">
         <mat-label>Item Name</mat-label>
         <input matInput id="contentName" type="text" formControlName="contentName">
     </mat-form-field>
 
-    <mat-form-field appearance="fill" [floatLabel]="always">
+    <mat-form-field appearance="fill">
         <mat-label>Amount</mat-label>
         <input matInput id="contentValue" type="number" formControlName="contentValue" placeholder="0" class="right-align">
         <span matPrefix>$&nbsp;</span>
     </mat-form-field>
 
-    <mat-form-field appearance="fill" [floatLabel]="always">
+    <mat-form-field appearance="fill">
         <mat-label>Category</mat-label>
         <mat-select formControlName="contentCategory">
             <mat-option *ngFor="let category of categories" [value]="category">
