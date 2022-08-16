@@ -1,0 +1,80 @@
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+code {
+  color: #e01a76;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-form-field {
+  width: 160px;
+  margin-top: 10px;
+}
+
+  .mat-form-field + .mat-form-field {
+    margin-left: 8px;
+  }
+
+  .mat-form-field + .btn-primary {
+    margin-left: 8px;
+  }
+
+.btn-i:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.mat-list-subitem {
+  margin-left: 30px !important;
+}
+
+.mat-list-base .mat-list-item {
+  height: 32px !important;
+}
+
+.subitem {
+  padding-left: 30px;
+}
+
+.footer {
+  padding: 0px 15px 0px 15px;
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+}
+
+.left-column {
+  text-align: left;
+  width: 25%;
+}
+
+.right-column {
+  text-align: right;
+  width: 25%;
+}
+
+.right-header {
+  padding-right: 30px;
+}
+
+.header {
+  font-weight: 500;
+}

@@ -1,4 +1,4 @@
-using ContentLimitsInsurance.Controllers;
+using Web.Controllers;
 using DataAccess;
 using DomainModel;
 using Microsoft.AspNetCore.Mvc;
