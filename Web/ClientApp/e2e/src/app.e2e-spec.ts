@@ -8,7 +8,7 @@ describe('App', () => {
   });
 
   it('should display content limits', () => {
-    ////page.navigateTo().;
-    ////expect(page.getMainHeading()).toEqual('Content Limits');
+    page.navigateTo();
+    page.getMainHeading().then((heading: string) => expect(heading).toEqual('Content Limits'));
   });
 });

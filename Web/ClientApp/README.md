@@ -33,3 +33,5 @@ ng build
 
 To test
 ng test
+npm install -g protractor
+webdriver-manager update
