@@ -51,7 +51,6 @@ export class ContentLimitsComponent {
     }
 
     sumContents() {
-        console.log(this.categories);
         var sum = 0;
         if (this.categories && this.categories.length > 0) {
             for (var i = 0; i < this.categories.length; i++) {

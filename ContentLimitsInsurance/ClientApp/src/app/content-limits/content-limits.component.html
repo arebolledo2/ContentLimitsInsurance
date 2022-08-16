@@ -3,8 +3,8 @@
 <mat-list>
     <ng-container *ngFor="let category of filteredCategories">
         <mat-list-item>
-            <strong class="left-column header">{{category.name}}</strong>
-            <strong class="right-column header right-header" style="">${{category.total()}}</strong>
+            <div class="left-column header">{{category.name}}</div>
+            <div class="right-column header right-header" style="">${{category.total()}}</div>
         </mat-list-item>
         <mat-list class="subitem">
             <div *ngFor="let content of category.contents">
