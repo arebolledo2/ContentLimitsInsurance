@@ -1,4 +1,4 @@
-﻿import { IContent } from '@domain-model/Content';
+import { IContent } from '@domain-model/Content';
 /*//import { Injectable } from '@angular/core';*/
 ////export interface ICategory {
 ////    name: string;
@@ -14,7 +14,7 @@ export class Category {
     contents: IContent[];
     categoryId: number;
 
-    constructor(json:any) {
+    constructor(json: any) {
         this.name = json.name;
         this.contents = json.contents;
         this.categoryId = json.categoryId;
