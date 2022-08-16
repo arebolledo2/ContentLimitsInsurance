@@ -2,7 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Category } from '@domain-model/Category';
 import { IContent } from '@domain-model/Content';
-import { ContentLimitsService } from './content-limits.service'
+import { IContentLimitsService } from './content-limits.service'
 
 @Component({
     selector: 'app-content-limits',
@@ -12,9 +12,9 @@ export class ContentLimitsComponent {
     categories: Category[];
     filteredCategories: Category[];
     contentForm: FormGroup;
-    service: ContentLimitsService;
+    service: IContentLimitsService;
 
-    constructor(service: ContentLimitsService, @Inject('BASE_URL') baseUrl: string) {
+    constructor(service: IContentLimitsService, @Inject('BASE_URL') baseUrl: string) {
         this.contentForm = new FormGroup({
             contentName: new FormControl(),
             contentCategory: new FormControl(),
@@ -38,7 +38,7 @@ export class ContentLimitsComponent {
             value: formData.value.contentValue,
             categoryId: formData.value.contentCategory.categoryId
         };
-        
+
         this.service.add(content).subscribe(result => {
             this.refresh();
         });

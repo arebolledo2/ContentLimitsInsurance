@@ -22,7 +22,7 @@
 </mat-list>
 <div class="footer">
     <div class="left-column header">Total</div>
-    <div class="right-column header right-header">${{ sumContents() }}</div>
+    <div id="total" class="right-column header right-header">${{ sumContents() }}</div>
 </div>
 
 <form [formGroup]="contentForm" (ngSubmit)="addContent(contentForm)">

@@ -6,14 +6,14 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { ContentLimitsComponent } from './content-limits/content-limits.component';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { IContentLimitsService, ContentLimitsService } from './content-limits/content-limits.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-
 
 @NgModule({
     declarations: [
@@ -29,14 +29,14 @@ import { MatFormFieldModule } from '@angular/material/form-field';
             { path: '', redirectTo: '/content-limits', pathMatch: 'full' },
             { path: 'content-limits', component: ContentLimitsComponent },
         ]),
-        NoopAnimationsModule,
+        BrowserAnimationsModule,
         MatListModule,
         ReactiveFormsModule,
         MatSelectModule,
         MatInputModule,
         MatFormFieldModule
     ],
-    providers: [],
+    providers: [{ provide: IContentLimitsService, useClass: ContentLimitsService }],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

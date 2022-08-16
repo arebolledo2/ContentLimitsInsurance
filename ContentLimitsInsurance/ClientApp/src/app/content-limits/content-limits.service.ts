@@ -1,15 +1,18 @@
-﻿import { Injectable, Inject } from '@angular/core';
+﻿import { Injectable, Inject  } from '@angular/core';
 import { Category } from '@domain-model/Category';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { IContent } from '@domain-model/Content';
 import { map, catchError } from 'rxjs/operators';
 
+export abstract class IContentLimitsService {
+    public abstract getCategories(): Observable<Category[]>;
+    public abstract add(content: IContent);
+    public abstract delete(content: IContent);
+}
 
-@Injectable({
-    providedIn: 'root'
-})
-export class ContentLimitsService {
+@Injectable()
+export class ContentLimitsService implements IContentLimitsService {
     baseUrl: string;
     http: HttpClient;
 
