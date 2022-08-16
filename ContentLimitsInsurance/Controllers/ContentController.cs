@@ -30,6 +30,11 @@ namespace ContentLimitsInsurance.Controllers
         [Route("Add")]
         public async Task<ActionResult> Add(Content content, CancellationToken token)
         {
+            if (content == null)
+            {
+                return BadRequest("Content is required");
+            }
+
             _repository.Add(content);
             await _repository.SaveChangesAsync(token);
             return new CreatedResult("Add", content);
