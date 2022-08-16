@@ -3,22 +3,29 @@
 <mat-list>
     <ng-container *ngFor="let category of filteredCategories">
         <mat-list-item>
-            <strong>{{category.name}}</strong> <strong>${{category.total()}}</strong>
+            <strong class="left-column header">{{category.name}}</strong>
+            <strong class="right-column header right-header" style="">${{category.total()}}</strong>
         </mat-list-item>
-        <mat-list style="margin-left:30px;">
+        <mat-list class="subitem">
             <div *ngFor="let content of category.contents">
                 <mat-list-item>
-                    {{ content.name }} ${{ content.value }}
-                    <button type="button" (click)="deleteContent(content)" class="btn btn-i"><i class="bi bi-trash"></i></button>
+                    <div class="left-column">{{ content.name }}</div>
+                    <div class="right-column">
+                        ${{ content.value }}
+                        <button type="button" (click)="deleteContent(content)" class="btn btn-i"><i class="bi bi-trash"></i></button>
+                    </div>
+
                 </mat-list-item>
             </div>
         </mat-list>
     </ng-container>
 </mat-list>
+<div class="footer">
+    <div class="left-column header">Total</div>
+    <div class="right-column header right-header">${{ sumContents() }}</div>
+</div>
 
-<div>Total $ {{ sumContents() }}</div>
-
-<form [formGroup]="contentForm" (ngSubmit)="addContent(categoryForm)">
+<form [formGroup]="contentForm" (ngSubmit)="addContent(contentForm)">
     <mat-form-field appearance="fill" [floatLabel]="always">
         <mat-label>Item Name</mat-label>
         <input matInput id="contentName" type="text" formControlName="contentName">

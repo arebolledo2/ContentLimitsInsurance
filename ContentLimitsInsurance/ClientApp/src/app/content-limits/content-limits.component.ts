@@ -38,7 +38,8 @@ export class ContentLimitsComponent {
             value: formData.value.contentValue,
             categoryId: formData.value.contentCategory.categoryId
         };
-        this.service.delete(content).subscribe(result => {
+        
+        this.service.add(content).subscribe(result => {
             this.refresh();
         });
     }

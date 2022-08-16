@@ -25,15 +25,56 @@ body {
 }
 
 .mat-form-field {
-    width: 220px;
+    width: 160px;
+    margin-top: 10px;
 }
 
     .mat-form-field + .mat-form-field {
         margin-left: 8px;
     }
 
+    .mat-form-field + .btn-primary {
+        margin-left: 8px;
+    }
 
+.btn-i:focus {
+    outline: none;
+    box-shadow: none;
+}
 
-.right-align {
+.mat-list-subitem {
+    margin-left: 30px !important;
+}
+
+.mat-list-base .mat-list-item {
+    height: 32px !important;
+}
+
+.subitem {
+    padding-left: 30px;
+}
+
+.footer {
+    padding-left: 15px;
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+}
+
+.left-column {
+    text-align: left;
+    width: 25%;
+}
+
+.right-column {
     text-align: right;
+    width: 25%;
+}
+
+.right-header {
+    padding-right: 30px;
+}
+
+.header {
+    font-weight: 600;
 }
