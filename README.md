@@ -8,7 +8,7 @@ Description: Demo of a single page app using EF, ASP.NET Core, and Angular
 * Web.Test: API endpoint tests
 
 ## Prequisites
-* .NET Core 3.1
+* .NET 6.0
 * Node.js
 * Entity Framework Core Tools: `dotnet tool install --global dotnet-ef`
 
