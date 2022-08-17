@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
@@ -39,11 +40,8 @@ describe('ContentLimitsComponent', () => {
     });
 
     it('should display categories and contents', async(() => {
-        expect(fixture.nativeElement).toContain("Category 1");
-        expect(fixture.nativeElement).toContain("Category 2");
-        expect(fixture.nativeElement).toContain("Content 1");
-        expect(fixture.nativeElement).toContain("Content 2");
-        expect(fixture.nativeElement).toContain("Content 3");
+        expect(fixture.debugElement.queryAll(By.css('.mat-list-item')).length).toEqual(5);
+
     }));
 
     it('should use mock service', async(() => {
@@ -56,22 +54,29 @@ describe('ContentLimitsComponent', () => {
     }));
 
     it('should add', async(() => {
-        const titleText = fixture.nativeElement.querySelector('h1').textContent;
-        expect(titleText).toEqual('Counter');
+        spyOn(fixture.componentInstance.service, 'add');
+        component.contentForm.controls['contentName'].setValue("Content 1");
+        component.contentForm.controls['contentValue'].setValue(500);
+        component.contentForm.controls['contentCategory'].setValue({ categoryId: 10 });
+        fixture.nativeElement.querySelector('#addButton').click();
+        expect(fixture.componentInstance.service.add).toHaveBeenCalledWith(
+            {
+                name: "Content 1",
+                value: 500,
+                categoryId: 10
+            });
     }));
 
-    ////it('should delete', async(() => {
-    ////    const titleText = fixture.nativeElement.querySelector('h1').textContent;
-    ////    expect(titleText).toEqual('Counter');
-    ////}));
+    it('should delete', async(() => {
+        spyOn(fixture.componentInstance.service, 'delete');
+        fixture.nativeElement.querySelector('#delete_111').click();
+        expect(fixture.componentInstance.service.delete).toHaveBeenCalledWith(
+            {
+                name: "Content 1",
+                value: 100,
+                contentId: 111,
+                categoryId: 10
+            });
+    }));
 
-    ////it('should start with count 0, then increments by 1 when clicked', async(() => {
-    ////    const countElement = fixture.nativeElement.querySelector('strong');
-    ////    expect(countElement.textContent).toEqual('0');
-
-    ////    const incrementButton = fixture.nativeElement.querySelector('button');
-    ////    incrementButton.click();
-    ////    fixture.detectChanges();
-    ////    expect(countElement.textContent).toEqual('1');
-    ////}));
 });

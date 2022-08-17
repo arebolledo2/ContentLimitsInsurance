@@ -10,16 +10,19 @@ export class MockContentLimitsService implements IContentLimitsService {
         var content1 = {
             name: "Content 1",
             value: 100,
+            contentId: 111,
             categoryId: 10
         } as IContent;
         var content2 = {
             name: "Content 2",
             value: 200,
+            contentId: 222,
             categoryId: 20
         } as IContent;
         var content3 = {
             name: "Content 3",
             value: 300,
+            contentId: 333,
             categoryId: 30
         } as IContent;
         let category1: Category = new Category(

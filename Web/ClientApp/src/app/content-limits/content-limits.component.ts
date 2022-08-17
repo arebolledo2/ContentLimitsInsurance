@@ -41,6 +41,7 @@ export class ContentLimitsComponent {
 
         this.service.add(content).subscribe((result: any) => {
             this.refresh();
+            this.contentForm.reset();
         });
     }
 
