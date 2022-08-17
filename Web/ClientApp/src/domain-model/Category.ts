@@ -1,14 +1,5 @@
 import { IContent } from '@domain-model/Content';
-/*//import { Injectable } from '@angular/core';*/
-////export interface ICategory {
-////    name: string;
-////    contents: IContent[];
-////    total: () => number;
-////}
 
-////@Injectable({
-////    providedIn: 'root'
-////})
 export class Category {
     name: string;
     contents: IContent[];
